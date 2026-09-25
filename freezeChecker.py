@@ -16,10 +16,10 @@ def get_objects():
 def check_freeze():
     obj = get_objects()
     for ao in obj:
-        move = cmds.getAttr(ao+".translate")
-        scale = cmds.getAttr(ao+".scale")
-        rotate = cmds.getAttr(ao+".rotate")
-        if(move[0] != (0,0,0) or scale[0] != (1,1,1) or rotate[0] != (0,0,0)):
+        move = cmds.getAttr(ao+".translate")[0]
+        scale = cmds.getAttr(ao+".scale")[0]
+        rotate = cmds.getAttr(ao+".rotate")[0]
+        if(move != (0,0,0) or scale != (1,1,1) or rotate != (0,0,0)):
             print("Freeze Transformations not applied on: " + ao)
 
 def main():
